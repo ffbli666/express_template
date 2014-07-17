@@ -9,8 +9,8 @@ exports.start = function (config) {
 
     app.configure(function() {
         app.use(express.bodyParser());
-        app.use(expressValidator);
-        app.use(express.static( __dirname + '/public'));
+        //app.use(expressValidator);
+        app.use(express.static( __dirname + '/htdocs'));
         app.use(app.router);
         app.use(express.logger({stream: access_logfile, immediate: true}));
         /*
@@ -32,5 +32,7 @@ exports.start = function (config) {
 
     require('./router')(app);
 
-    app.listen(config.port);
+    var server = app.listen(config.port, function() {
+        console.log('Listening on port %d', server.address().port);
+    });
 }
