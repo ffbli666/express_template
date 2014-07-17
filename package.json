@@ -7,8 +7,7 @@
         "express": "4.x",
         "mongoose": "3.8.x",
         "mysql": "*",
-        "async":"*",
-        "express-validator": "*",
+        "async":"*",        
         "mongoose-double": "*",
         "imagemagick": "*",
         "bufferhelper": "*"

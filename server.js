@@ -1,29 +1,19 @@
 var express = require('express');
-var fs = require('fs');
-var expressValidator = require('express-validator');
 
 exports.start = function (config) {
     var app = express();
-    //var access_logfile = fs.createWriteStream('./log/access.log', {flags: 'a'});
-    //app.use(express.cookieParser());
-    //app.use(express.bodyParser());
-    //app.use(expressValidator);
-    app.use(express.static( __dirname + '/htdocs'));    
-    //app.use(express.logger({stream: access_logfile, immediate: true}));
+    
+    app.use(function(req, res, next){
+        console.log('%s %s', req.method, req.url);
+        next();
+    });
 
-    /*
-    //web basic auth
-    app.use(express.basicAuth(function(user, pass) {
-        return user === 'testUser' && pass === 'testPass';
-    }));
-    */
-
+     app.use(express.static( __dirname + '/public'));    
+    
     var env = process.env.NODE_ENV || 'development';
-    if ('development' == env) {
-       //app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
+    if ('development' == env) {       
     }
-    else {
-       //app.use(express.errorHandler()); 
+    else {       
     }
 
     require('./router')(app);

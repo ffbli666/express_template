@@ -1,32 +1,11 @@
 var cluster    = require('cluster');
 var numCPUs    = require('os').cpus().length;
 var server     = require('./server');
-//global.mongodb = require('./mongodb');
-//global.mysql = require('./mysql');
+var fs         = require('fs');
 
-var config = {
-    server: {
-        port: 8888
-    },
-    mongodb: {
-        host: 'localhost',
-        port: 27017,
-        db: 'mymongodb', 
-        poolSize: 5
-    },
-    mysql: {
-        host     : '127.0.0.1',
-        user     : 'root',
-        port     : '3306',
-        password : 'mypassword',
-        database : 'mydatabase',
-        connectionLimit : 10,
-    }
-}
-
-//server.start(config.server);
-//mongodb.start(config['mongodb']);
-//server.start(config['server']);
+global.mongodb = require('./mongodb');
+global.mysql   = require('./mysql');
+global.config  = require('./config')();
 
 if (cluster.isMaster) {
     for (var i = 0; i < numCPUs; i++) {
