@@ -1,0 +1,16 @@
+{
+    "name": "express",
+    "description": "my express template",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.x",
+        "mongoose": "3.8.x",
+        "mysql": "*",
+        "async":"*",
+        "express-validator": "*",
+        "mongoose-double": "*",
+        "imagemagick": "*",
+        "bufferhelper": "*"
+    }
+}
