@@ -9,8 +9,8 @@ exports.start = function (config) {
         next();
     });
     
-    app.use(bodyParser.json({ type: 'application/json' }))    
-    app.use(bodyParser.urlencoded({ type: 'application/x-www-form-urlencoded' }))    
+    app.use(bodyParser.json({type: 'application/json'}));
+    app.use(bodyParser.urlencoded({type: 'application/x-www-form-urlencoded', extended:false}));
     app.use(express.static( __dirname + '/public'));    
     
     var env = process.env.NODE_ENV || 'development';
