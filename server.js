@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 
 exports.start = function (config) {
     var app = express();
-    var router = express.Router();    
 
     app.use(function(req, res, next){
         console.log('%s %s', req.method, req.url);
@@ -21,7 +20,7 @@ exports.start = function (config) {
     else {       
     }
 
-    require('./router')(app, router);
+    require('./router')(app);
 
     var server = app.listen(config.port, function() {
         console.log('Listening on port %d', server.address().port);
