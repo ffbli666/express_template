@@ -1,10 +1,16 @@
 var async = require('async');
-module.exports = function(app) {
+module.exports = function(app) {    
     //router
-    app.get('/hello', function(req, res){
-        res.send('Hello World');
+    app.get('/get', function (req, res){        
+        res.send('Got a GET request');       
+        console.log(req.query);
     });
-    
+
+    app.post('/post', function (req, res) {
+        res.send('Got a POST request');
+        console.log(req.body);
+    });
+
     app.get('*', notFound);
 };
 
