@@ -3,7 +3,7 @@ var numCPUs    = require('os').cpus().length;
 var server     = require('./server');
 var fs         = require('fs');
 
-global.mongodb = require('./mongodb');
+//global.mongodb = require('./mongodb');
 global.mysql   = require('./mysql');
 global.config  = require('./config')();
 
@@ -18,8 +18,8 @@ if (cluster.isMaster) {
         console.log('worker ' + worker.process.pid + ' died');
         //cluster.fork();  //if died create new children
     });
-} 
-else 
+}
+else
 {
     //mysql.start(config.mysql);
     //mongodb.start(config.database);

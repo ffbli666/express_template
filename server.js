@@ -8,16 +8,16 @@ exports.start = function (config) {
         console.log('%s %s', req.method, req.url);
         next();
     });
-    
+
     app.use(bodyParser.json({type: 'application/json'}));
     app.use(bodyParser.urlencoded({type: 'application/x-www-form-urlencoded', extended:false}));
-    app.use(express.static( __dirname + '/public'));    
-    
+    app.use(express.static( __dirname + '/public'));
+
     var env = process.env.NODE_ENV || 'development';
-    
-    if ('development' == env) {       
+
+    if ('development' == env) {
     }
-    else {       
+    else {
     }
 
     require('./router')(app);

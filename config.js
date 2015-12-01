@@ -6,7 +6,7 @@ module.exports = function(app) {
         mongodb: {
             host: 'localhost',
             port: 27017,
-            db: 'mymongodb', 
+            db: 'mymongodb',
             poolSize: 5
         },
         mysql: {
