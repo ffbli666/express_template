@@ -1,5 +1,3 @@
-var async = require('async');
-
 module.exports = function(app) {
 
     var hello = require('./controllers/hello');
