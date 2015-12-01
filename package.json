@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.13.3",
-    "body-parser": "1.X",
+    "body-parser": "^1.14.1",
     "bson": "^0.4.19",
     "mysql": "^2.5.4"
   }
