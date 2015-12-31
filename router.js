@@ -1,15 +1,23 @@
-module.exports = function(app) {
+var hello = require('./application/controllers/hello');
 
-    var hello = require('./controllers/hello');
-    //router
+module.exports = function(app) {
+    app.get('/hello', function(req, res){
+        res.send('Hello World');
+    });
     app.get('/get', hello.get);
 
     app.post('/post', hello.post);
+
+    app.get('/', function(req, res) {
+        res.render('index.html', {
+            navbar: {index: 'active'}
+        });
+    });
 
     app.get('*', notFound);
 };
 
 function notFound(req, res)
 {
-    res.send('404', 'Page Not Found');
+    res.status(404).send('Page Not Found');
 }
